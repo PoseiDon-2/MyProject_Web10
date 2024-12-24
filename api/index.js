@@ -4,11 +4,11 @@ const PORT = 4000;
 
 // เส้นทางหลัก
 app.get('/', (req, res) => {
-    res.send('This is my API running...');
+    res.send('บักโง่โดนกูหลอก แต่ "/about" อาจจะมีอะไรเจ่งๆ');
 });
 
 app.get('/about', (req, res) => {
-    res.send('This is my about route');
+    res.send('มึงนี้มันโง่จริงๆ');
 });
 
 // ส่งออกฟังก์ชันเพื่อให้ Vercel ใช้งาน
