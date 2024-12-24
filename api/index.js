@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = 4000;
 
@@ -10,8 +11,6 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.send('มึงนี้มันโง่จริงๆ');
 });
-
-
 
 // ส่งออกฟังก์ชันเพื่อให้ Vercel ใช้งาน
 module.exports = (req, res) => {
