@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-    res.send('มึงนี้มันโง่จริงๆ');
+    res.send('My About');
 });
 
 // ส่งออกฟังก์ชันเพื่อให้ Vercel ใช้งาน
