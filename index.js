@@ -56,6 +56,4 @@ app.get('/logout', logoutController);
 
 
 // ส่งออกฟังก์ชันเพื่อให้ Vercel ใช้งาน
-module.exports = (req, res) => {
-    app(req, res);
-};
+module.exports = app;
