@@ -8,7 +8,9 @@ const expressSession = require('express-session');
 const flash = require('connect-flash'); //เก็บข้อความ Error ไว้
 
 //Connect to DB
-mongoose.connect('mongodb+srv://admin:adminWEB10@cluster0.3obax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+mongoose.connect('mongodb+srv://admin:adminWEB10@cluster0.3obax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',{
+    useNewUrlParser: true,
+});
 
 global.loggedIn = null;
 
@@ -38,6 +40,8 @@ app.use("*", (req, res, next) => {
     loggedIn = req.session.userId;
     next();
 });
+
+app.set('views', path.join(__dirname, 'views'));  // กำหนด views directory
 app.set('view engine', 'ejs');
 
 app.listen(PORT, () => {
