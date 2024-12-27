@@ -26,6 +26,7 @@ const homeController = require('./controllers/homeController');
 const redirectIfAuth = require('./middleware/redirectIfAuth');
 const authMiddleware = require('./middleware/authMiddleware');
 
+
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded());
@@ -53,4 +54,4 @@ app.get('/logout', logoutController);
 
 
 // ส่งออกฟังก์ชันเพื่อให้ Vercel ใช้งาน
-module.exports = app    // ส่งออก app ไปให้ Vercel ใช้งาน
+module.exports = app    
