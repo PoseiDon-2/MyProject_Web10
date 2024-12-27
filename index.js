@@ -42,6 +42,7 @@ app.use("*", (req, res, next) => {
 });
 
 app.set('views', path.join(__dirname, 'views'));  // กำหนด views directory
+app.set('public', path.join(__dirname, 'public'));  // กำหนด public directory
 app.set('view engine', 'ejs');
 
 app.listen(PORT, () => {
