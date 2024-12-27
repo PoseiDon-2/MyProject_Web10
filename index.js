@@ -45,6 +45,7 @@ app.set('views', path.join(__dirname, 'views'));  // กำหนด views direc
 app.set('public', path.join(__dirname, 'public'));  // กำหนด public directory
 app.set('controllers', path.join(__dirname, 'controllers'));    // กำหนด controllers directory
 app.set('middleware', path.join(__dirname, 'middleware'));  // กำหนด middleware directory
+app.set('models', path.join(__dirname, 'models'));  // กำหนด models directory
 app.set('view engine', 'ejs');
 
 app.listen(PORT, () => {
