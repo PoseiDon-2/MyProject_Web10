@@ -1,3 +1,5 @@
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -6,6 +8,7 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const expressSession = require('express-session');
 const flash = require('connect-flash'); //เก็บข้อความ Error ไว้
+
 
 //Connect to DB
 mongoose.connect('mongodb+srv://admin:adminWEB10@cluster0.3obax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
