@@ -11,10 +11,8 @@ const flash = require('connect-flash'); //เก็บข้อความ Erro
 
 
 //Connect to DB
-mongoose.connect('mongodb+srv://admin:adminWEB10@cluster0.3obax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
-    useNewUrlParser: true,
-    // useUnifiedTopology: true
-});
+mongoose.connect('mongodb+srv://admin:adminWEB10@cluster0.3obax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+
 
 global.loggedIn = null;
 
@@ -30,7 +28,8 @@ const homeController = require('./controllers/homeController');
 
 //Middleware
 const redirectIfAuth = require('./middleware/redirectIfAuth');
-const authMiddelware = require('./middleware/authMiddelware');
+const authMiddleware = require('./middleware/authMiddleware');
+
 
 app.use(express.static('public'));
 app.use(express.json());
