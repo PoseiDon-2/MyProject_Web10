@@ -1,5 +1,3 @@
-// import { SpeedInsights } from "@vercel/speed-insights/next";
-
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -9,10 +7,8 @@ const mongoose = require('mongoose');
 const expressSession = require('express-session');
 const flash = require('connect-flash'); //เก็บข้อความ Error ไว้
 
-
 //Connect to DB
 mongoose.connect('mongodb+srv://admin:adminWEB10@cluster0.3obax.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
-
 
 global.loggedIn = null;
 
@@ -29,7 +25,6 @@ const homeController = require('./controllers/homeController');
 //Middleware
 const redirectIfAuth = require('./middleware/redirectIfAuth');
 const authMiddleware = require('./middleware/authMiddleware');
-
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -58,4 +53,6 @@ app.get('/logout', logoutController);
 
 
 // ส่งออกฟังก์ชันเพื่อให้ Vercel ใช้งาน
-module.exports = app;
+module.exports = (req, res) => {
+    app(req, res);
+};
