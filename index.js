@@ -54,7 +54,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/', indexController);
-app.get('/home', authMiddleware, homeController);
+app.post('/home', authMiddleware, homeController);
 app.get('/login', redirectIfAuth, loginController);
 app.get('/register', redirectIfAuth, registerController);
 app.post('/user/register', redirectIfAuth, storeUserController);
