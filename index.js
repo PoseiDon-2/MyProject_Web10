@@ -51,6 +51,8 @@ app.use('*', (req, res, next) => {
 // กำหนด View Engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+mongoose.set('maxTimeMS', 5000); // Set maximum time for queries to 5 seconds
+
 
 // Routes
 app.get('/', indexController);
@@ -61,6 +63,11 @@ app.post('/user/register', redirectIfAuth, storeUserController);
 app.post('/user/login', redirectIfAuth, loginUserController);
 app.get('/logout', logoutController);
 
+app.get('/ping', (req, res) => {
+    res.send('Server is running!');
+  });
+
+  
 // จัดการ Error 404
 app.use((req, res) => {
   res.status(404).render('404', { loggedIn });
