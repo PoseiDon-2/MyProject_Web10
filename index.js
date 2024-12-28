@@ -41,6 +41,8 @@ app.use("*", (req, res, next) => {
     next();
 });
 app.set('view engine', 'ejs');
+app.set('views', path.resolve(__dirname, 'views'));
+app.set('public', path.resolve(__dirname, 'public'));
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
