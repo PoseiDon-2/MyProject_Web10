@@ -14,7 +14,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('Failed to connect to MongoDB:', err));
+  .catch((error) => console.error('Failed to connect to MongoDB:', error));
 
 global.loggedIn = null;
 
@@ -50,6 +50,11 @@ app.use('*', (req, res, next) => {
 
 // กำหนด View Engine
 app.set('views', path.join(__dirname, 'views'));
+app.set('public', path.join(__dirname, 'public'));
+app.set('models', path.join(__dirname, 'models'));
+app.set('controllers', path.join(__dirname, 'controllers'));
+app.set('middleware', path.join(__dirname, 'middleware'));
+
 app.set('view engine', 'ejs');
 mongoose.set('maxTimeMS', 5000); // Set maximum time for queries to 5 seconds
 
