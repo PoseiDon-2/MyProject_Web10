@@ -44,6 +44,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('public', path.resolve(__dirname, 'public'));
 app.set('models', path.resolve(__dirname, 'models'));
+app.set('controllers', path.resolve(__dirname, 'controllers'));
+app.set('middleware', path.resolve(__dirname, 'middleware'));
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
