@@ -34,7 +34,9 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(flash ());
 app.use(expressSession({
-    secret: 'node secret'
+    secret: 'node secret',
+    resave: false,
+    saveUninitialized: true
 }));
 app.use("*", (req, res, next) => {
     loggedIn = req.session.userId;
