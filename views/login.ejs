@@ -164,7 +164,7 @@
 
     
 <main class="form-signin w-100 m-auto">
-  <form action="/user/login" method="post" id="login-form">
+  <form action="/user/login" method="post">
     <!-- <img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <h1 class="h3 mb-3 fw-normal">Sign in</h1>
 
@@ -191,29 +191,3 @@
 
     </body>
 </html>
-<script>
-  document.getElementById('login-form').addEventListener('submit', function(event) {
-      event.preventDefault(); // ป้องกันการ submit แบบปกติ
-
-      const formData = new FormData(this);
-      
-      // ส่งคำขอไปยังเซิร์ฟเวอร์
-      fetch('/login', {
-          method: 'POST',
-          body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-          if (data.success) {
-              // หากล็อกอินสำเร็จ, รีเฟรชหน้าเว็บ
-              location.reload(); // รีเฟรชหน้าเว็บ
-          } else {
-              alert(data.message); // แสดงข้อความผิดพลาด
-          }
-      })
-      .catch(error => {
-          console.error('Error:', error);
-          alert('Something went wrong.');
-      });
-  });
-</script>
