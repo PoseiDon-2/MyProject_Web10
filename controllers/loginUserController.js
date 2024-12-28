@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
-// const e = require('connect-flash');
+const e = require('connect-flash');
 
 module.exports = (req, res) => {
     const { email, password } = req.body; 
