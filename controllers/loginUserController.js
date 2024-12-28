@@ -13,17 +13,17 @@ module.exports = async (req, res) => {
             const match = await bcrypt.compare(password, user.password);
 
             if (match) {
-                // หากรหัสผ่านถูกต้อง ให้เก็บ userId ใน session
+                // หากรหัสผ่านถูกต้อง เก็บข้อมูล userId ใน session
                 req.session.userId = user._id;
-                res.redirect('/home');  // ไปยังหน้าหลัก
+                res.json({ success: true, message: "Login successful" });  // ส่งผลลัพธ์กลับเป็น JSON
             } else {
-                res.redirect('/login');  // รหัสผ่านไม่ถูกต้อง
+                res.json({ success: false, message: "Invalid password" });
             }
         } else {
-            res.redirect('/login');  // หากไม่พบผู้ใช้
+            res.json({ success: false, message: "User not found" });
         }
     } catch (error) {
         console.error(error);
-        res.redirect('/login');  // หากเกิดข้อผิดพลาดอื่นๆ
+        res.json({ success: false, message: "Something went wrong" });
     }
 };
